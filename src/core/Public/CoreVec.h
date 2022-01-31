@@ -11,6 +11,7 @@ namespace core {
 // * what can i make constexpr?
 // * [[nodiscard]]
 // * explicit constructors
+// * debug build functionality for bounds checking
 
 template <class DataType, size_t NumElements>
 class Vec {

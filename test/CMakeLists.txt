@@ -16,21 +16,19 @@
 
 cmake_minimum_required(VERSION 3.14)
 
-project(reasonable-math)
+project(rsm-tests)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if (WIN32)
+    add_compile_definitions(WIN32_LEAN_AND_MEAN)
+endif(WIN32)
 
-add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
+set(TEST_SRC_DIR      ${CMAKE_CURRENT_SOURCE_DIR})
 
-if(WIN32)
-  # what does this actually do??
-  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-endif()
+list(APPEND BASIC_TEST_SRC_FILES
+    ${TEST_SRC_DIR}/BasicTests.cpp
+    ${TEST_SRC_DIR}/UnitTestMain.cpp
+)
 
-add_subdirectory(src/basic)
-add_subdirectory(src/core)
-#add_subdirectory(src/ga)
+add_executable(BasicUnitTests ${BASIC_TEST_SRC_FILES})
 
-add_subdirectory(third_party/doctest)
-add_subdirectory(test)
+target_link_libraries(BasicUnitTests doctest librsm-basic)
