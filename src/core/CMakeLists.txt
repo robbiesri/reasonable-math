@@ -16,7 +16,7 @@
 
 cmake_minimum_required(VERSION 3.14)
 
-project(librsm-basic)
+project(librsm-core)
 
 set(SRC_DIR         ${CMAKE_CURRENT_SOURCE_DIR})
 set(PUBLIC_DIR      ${SRC_DIR}/Public)
@@ -27,7 +27,7 @@ if (WIN32)
 endif()
 
 list(APPEND PUBLIC_HDR_FILES
-    ${PUBLIC_DIR}/BasicVec.h
+    ${PUBLIC_DIR}/CoreVec.h
 )
 
 list(APPEND PRIVATE_HDR_FILES
@@ -35,7 +35,7 @@ list(APPEND PRIVATE_HDR_FILES
 )
 
 list(APPEND PRIVATE_SRC_FILES
-    ${PRIVATE_DIR}/BasicVec.cpp
+    ${PRIVATE_DIR}/CoreVec.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED 

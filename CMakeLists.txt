@@ -29,6 +29,8 @@ if(WIN32)
 endif()
 
 add_subdirectory(src/basic)
+add_subdirectory(src/core)
+#add_subdirectory(src/ga)
 
 #add_subdirectory(third_party/doctest)
 #add_subdirectory(tests)
